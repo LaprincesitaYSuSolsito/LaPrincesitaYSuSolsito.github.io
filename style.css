@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+  background: url('tulipanes.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Georgia', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+
+ background-color: rgba(0, 0, 0, 1);
+}
+
+
+/* Book */
+.book {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    transition: transform 0.5s;
+}
+
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    perspective: 1500px;
+
+}
+
+.front,
+.back {
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+    border-left: 3px solid powderblue;
+}
+
+.back {
+    z-index: 0;
+}
+
+.front-content,
+.back-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-content {
+    transform: rotateY(180deg)
+}
+
+/* Paper flip effect */
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Controller Buttons */
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.5s;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover i {
+    color: #636363;
+}
+
+i {
+    font-size: 50px;
+    color: gray;
+}
+
+/* Paper stack order */
+#p1 {
+    z-index: 3;
+}
+
+#p2 {
+    z-index: 2;
+}
+
+#p3 {
+    z-index: 1;
+}
+
+#f1 {
+     padding: 0px;
+}
+#b1 {
+    font-size: 12px;
+}
+#f2 {
+    font-size: 7px;
+    padding: 20px;
+}
+
+#b2 {
+    font-size: 7px;
+    padding: 20px;
+}
+
+#f3 {
+    font-size: 7px;
+    padding: 20px;
+}
+/* Mariposas animadas */
+.butterflies {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.butterfly {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('butterfly.png');
+  background-size: cover;
+  animation: fly 10s linear infinite;
+}
+
+.butterfly:nth-child(1) {
+  top: 50%;
+  left: 10%;
+  animation-delay: 0s;
+}
+.butterfly:nth-child(2) {
+  top: 20%;
+  left: 30%;
+  animation-delay: 2s;
+}
+.butterfly:nth-child(3) {
+  top: 80%;
+  left: 70%;
+  animation-delay: 4s;
+}
+
+/* imagen */
+.mi-imagen {
+    width: 357px;         /* Ajusta el ancho */
+    height: 500px;         /* Mantiene proporción */
+    display: block;
+    margin: 0px auto;    /* Centra horizontalmente */
+    position: relative;   /* o absolute/fixed según el caso */
+    top: 0px;            /* Mueve hacia abajo */
+    left: -3px;           /* Mueve hacia la derecha */
+}
+
+.mi-imagen2 {
+    width: 351px;         /* Ajusta el ancho */
+    height: 500px;         /* Mantiene proporción */
+    display: block;
+    margin: 0px auto;    /* Centra horizontalmente */
+    position: relative;   /* o absolute/fixed según el caso */
+    top: 0px;            /* Mueve hacia abajo */
+    left: -3px;           /* Mueve hacia la derecha */
+}
+
+@keyframes fly {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(100px, -200px) rotate(20deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
